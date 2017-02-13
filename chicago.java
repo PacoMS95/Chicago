@@ -35,9 +35,9 @@ Juego Chicago:
 * > Los resultados de la tirada de los dados (int) por pantalla
 * > Distintos mensajes (String) por pantalla, como quién es el ganador, en qué ronda nos encontramos (etc)
 * 
-* Objetos:
+* Clases:
 * > Clase persona, de la cuál nos interesa su nombre y cuánto dinero tiene (Paco)
-* > Clase dado, de la cuál nos interesa saber su número en cada tirada
+* > Clase dado, de la cuál nos interesa saber su número en cada tirada (Paulo)
 * 
 * Pseudocódigo generalizado del programa principal
 * 
