@@ -36,8 +36,8 @@ Juego Chicago:
 * > Distintos mensajes (String) por pantalla, como quién es el ganador, en qué ronda nos encontramos (etc)
 * 
 * Clases:
-* > Clase persona, de la cuál nos interesa su nombre y cuánto dinero tiene (Paco)
-* > Clase dado, de la cuál nos interesa saber su número en cada tirada (Paulo)
+* > Clase Jugador, de la cuál nos interesa su nombre y cuánto dinero tiene (Paco)
+* > Clase Dado, de la cuál nos interesa saber su número en cada tirada (Paulo)
 * 
 * Pseudocódigo generalizado del programa principal
 * 
@@ -60,7 +60,7 @@ Juego Chicago:
 * 			Preguntar nombre del jugador
 * 			Leer nombre del jugador *
 * 			Lanzar dado y determinar quien tirará primero *
-* 			Leer cuánto se apuesta //Si se apuesta más de lo que se tiene en el monedero, lanzar excepción
+* 			Leer cuánto se apuesta y validar entrada
 * 
 * 			Hacer
 * 				Mostrar numero clave de la ronda
@@ -106,7 +106,7 @@ public class chicago {
  			//Preguntar nombre del jugador
  			//Leer nombre del jugador *
  			//Lanzar dado y determinar quien tirará primero *
- 			//Leer cuánto se apuesta //Si se apuesta más de lo que se tiene en el monedero, lanzar excepción
+ 			//Leer cuánto se apuesta y validar entrada
  
  			//Hacer
  				//Mostrar numero clave de la ronda

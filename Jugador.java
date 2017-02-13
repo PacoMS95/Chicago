@@ -1,4 +1,4 @@
-/*Clase persona
+/*Clase Jugador
  * 
  * Propiedades:
  * 
@@ -8,10 +8,11 @@
  * MÉTODOS
  * 
  * 
+ * 
  */
 
 
-public class persona {
+public class Jugador {
 	
 	
 }
