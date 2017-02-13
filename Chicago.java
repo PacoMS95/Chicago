@@ -94,17 +94,26 @@ Juego Chicago:
 * 
 * 
  */
-
+import java.io.*;
+import java.util.Scanner;
 
 public class chicago {
 	
 	public static void main (String[] args) {
 		
-
- 		//Hacer
+		Scanner teclado = new Scanner (System.in);
+		char repetir = ' ';
+		String nombre = " ";
+		Jugador j = new Jugador();
+		int dinero = 1000;
+		
+ 		do{//Hacer
  
- 			//Preguntar nombre del jugador
+ 			System.out.println("Introduce tu nombre");//Preguntar nombre del jugador
+ 			nombre = teclado.nextLine();
+ 			j.setNombre(nombre);
  			//Leer nombre del jugador *
+ 			
  			//Lanzar dado y determinar quien tirará primero *
  			//Leer cuánto se apuesta y validar entrada
  
@@ -130,9 +139,9 @@ public class chicago {
  			//Sino
  				//Mostrar "Haber estudiao"
  
- 			//Pedir si repetir
- 
- 		//Mientras el usuario quiera
+ 			System.out.println("Desea repetir?");//Pedir si repetir
+			repetir = Character.toUpperCase(teclado.next().charAt(0));
+ 		}while(repetir =='S');//Mientras el usuario quiera
  
 
 		
