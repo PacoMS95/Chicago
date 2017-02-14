@@ -31,7 +31,7 @@
  *     public int generarTirada();
  */
  
- import java.util.Random;
+import java.util.Random;
 public class Dado implements Cloneable, Comparable<Dado>
 {
 	//------------------------------- PROPIEDADES ------------------------------------

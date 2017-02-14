@@ -148,18 +148,19 @@ public class Chicago {
 				dineroApostado = teclado.nextInt();
 				
 				}while(dineroApostado <= 0);
-				
-			}catch(InputMismatchException e) {
-				System.out.println("Introduce un numero entero, no un decimal");
-				}
-			finally{
-								do{
+
+               do{
 				System.out.println("Cuanto desea apostar?");
 				
 				dineroApostado = teclado.nextInt();
 				
 				}while(dineroApostado <= 0);
+				
+			}catch(InputMismatchException e) {
+				System.out.println("Introduce un numero entero, no un decimal");
 				}
+			
+            
  			//Leer cuánto se apuesta y validar entrada
  
  			do{//Hacer
