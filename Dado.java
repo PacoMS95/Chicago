@@ -3,8 +3,9 @@
  *
  * Propiedades Basicas
  * 
- *     numeroDeCaras : tipo int, consultable y modificable
-
+ *     numeroCaras   : tipo int, consultable y modificable
+ *     numeroTirada  : tipo int, consultable
+ *
  * Propiedades Derivadas
  *     NINGUNA
  * 
@@ -17,10 +18,17 @@
  * Comentarios
  * 
  * Interfaz:
+ * 
+ *     //METODOS CONSULTORES
+ *     public int  getNumeroCaras();
+ *     public int  getNumeroTirada();
  *
- *     public int getNumeroDeCaras();
- *     
- *     public void setNumeroDeCaras( int numeroDeCaras ); 
+ *     //METODOS MODIFICADORES
+ *     private void setNumeroCaras( int numeroCaras );
+ *     private void setNumeroTirada( int numeroTirada ); 
+ *
+ *     //METODOS AÑADIDOS
+ *     public int generarTirada();
  */
  
  import java.util.Random;
@@ -28,30 +36,31 @@ public class Dado implements Cloneable, Comparable<Dado>
 {
 	//------------------------------- PROPIEDADES ------------------------------------
 	//BASICAS
-	private int numeroDeCaras;
+	private int numeroCaras;
 	private int numeroTirada;
 
 	//PROPIEDADES DERIVADAS
 		//NINGUNA
 
 	//PROPIEDADES COMPARTIDAS
+	    //NINGUNA
 
 	//------------------------------- FIN PROPIEDADES ---------------------------------
 	
 	//------------------------------- CONSTRUCTORES ----------------------------------
 	//CONSTRUCTOR POR DEFECTO
-	public void Dado()
+	public Dado()
 	{
-		numeroDeCaras = 6;
+		numeroCaras = 6;
 		numeroTirada = 1;
 	}
 	
 	//CONSTRUCTOR SOBRECARGADO
-	public void Dado(int numeroDeCaras, int numeroTirada) throws DadoException
+	public Dado(int numeroCaras, int numeroTirada) throws DadoException
 	{
-		if ( numeroDeCaras == 6 && numeroTirada >= 1 && numeroTirada <= 6 )
+		if ( numeroCaras == 6 && numeroTirada >= 1 && numeroTirada <= 6 )
 		{
-			this.numeroDeCaras = numeroDeCaras;
+			this.numeroCaras  = numeroCaras;
 		    this.numeroTirada = numeroTirada;
 		}
 		else
@@ -61,17 +70,17 @@ public class Dado implements Cloneable, Comparable<Dado>
 	}
 	
 	//CONSTRUCTOR DE COPIA
-	public void Dado(Dado dado)
+	public Dado(Dado dado)
 	{
-		numeroDeCaras = dado.getNumeroDeCaras();
-		numeroTirada = dado.getNumeroTirada();
+		numeroCaras   = dado.getNumeroCaras();
+		numeroTirada  = dado.getNumeroTirada();
 	}
 	//------------------------------- FIN CONSTRUCTORES ---------------------------------
 
 	//------------------------------- METODOS CONSULTORES --------------------------------
-    public int getNumeroDeCaras()
+    public int getNumeroCaras()
     {
-    	return numeroDeCaras;
+    	return numeroTirada;
     }
     public int getNumeroTirada()
     {
@@ -81,11 +90,11 @@ public class Dado implements Cloneable, Comparable<Dado>
 	
 
     //------------------------------- METODOS MODIFICADORES ----------------------------------
-    public void setNumeroDeCaras(int numeroDeCaras) throws DadoException
+    public void setNumeroCaras(int numeroCaras) throws DadoException
 	{
-		if ( numeroDeCaras == 6 )
+		if ( numeroCaras == 6 )
 		{
-			numeroDeCaras = numeroDeCaras;
+			this.numeroCaras = numeroTirada;
 		}
 		else
 		{
@@ -93,7 +102,7 @@ public class Dado implements Cloneable, Comparable<Dado>
 		}	
 	}
 
-	public void setNumeroTirada(int numeroTirada) throws DadoException
+	private void setNumeroTirada(int numeroTirada) throws DadoException
 	{
 		if ( numeroTirada >= 1 && numeroTirada <= 6 )
 		{
@@ -111,7 +120,7 @@ public class Dado implements Cloneable, Comparable<Dado>
 	public String toString()
 	{
 		String toString;
-	    toString = numeroDeCaras+","+numeroTirada;
+	    toString = numeroCaras+","+numeroTirada;
 	    return toString; 
 	}
 
@@ -119,7 +128,7 @@ public class Dado implements Cloneable, Comparable<Dado>
     public int hashCode()
     {
     	int hashCode = 0;
-    	hashCode = numeroDeCaras * numeroTirada / 14 * 2;
+    	hashCode = numeroCaras * numeroTirada / 14 * 2;
     	return hashCode;
     }
     
@@ -171,7 +180,7 @@ public class Dado implements Cloneable, Comparable<Dado>
         {
             Dado dado = (Dado) object;
 
-            if ( numeroDeCaras == dado.getNumeroDeCaras() )
+            if ( numeroTirada == dado.getNumeroTirada() )
             {
             	sonIguales = true;
             }
@@ -197,17 +206,18 @@ public class Dado implements Cloneable, Comparable<Dado>
 	 *     
 	 * Postcondiciones:
 	 *     Devolvera -1 cuando sea menor, 0 cuando sean iguales, 1 cuando sea mayor 
+	 *     Se comparara el numero de la tirada del dado
 	*/
 	@Override
 	public int compareTo(Dado dado)
     {
         int comparacion;
 
-        if (numeroDeCaras < dado.getNumeroDeCaras())
+        if (numeroTirada < dado.getNumeroTirada())
         {
             comparacion = -1;
         }
-        else if (numeroDeCaras > dado.getNumeroDeCaras())
+        else if (numeroTirada > dado.getNumeroTirada())
         {
         	comparacion = 1;
         }
@@ -220,7 +230,6 @@ public class Dado implements Cloneable, Comparable<Dado>
 	//------------------------------- FIN METODOS SOBRESCRITOS ----------------------------------
 
 	//------------------------------- FIN METODOS AÑADIDOS ----------------------------------
-	
 	public int generarTirada()
 	{
 		Random random = new Random();
