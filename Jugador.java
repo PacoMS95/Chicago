@@ -219,15 +219,15 @@ public class Jugador implements Cloneable, Comparable <Jugador>{
 	  * 
 	  * NOMBRE: lanzarDado
 	  * 
-	  * PRECONDICiONES: el número debe estar entre 1 y 6
+	  * PRECONDICiONES: ninguna
 	  * 
-	  * ENTRADA: un número entero
+	  * ENTRADA: ninguna
 	  * 
-	  * SALIDA: ninguna
+	  * SALIDA: un entero
 	  * 
-	  * POSTCONDICIONES: ninguna
+	  * POSTCONDICIONES: el número devuelto estará entre 1 y 6
 	  * 
-	  * CABECERA: void lanzarDado (int dado)
+	  * CABECERA: int lanzarDado ()
 	  * */
 	  
 	  public int lanzarDado (){

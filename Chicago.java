@@ -95,7 +95,7 @@ Juego Chicago:
 * 
  */
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class Chicago {
 	
@@ -104,12 +104,23 @@ public class Chicago {
 		Scanner teclado = new Scanner (System.in);
 		char repetir = ' ';
 		String nombre = " ";
+		int dineroApostado = 0;
 		Jugador j = new Jugador(); //Jugador humano
 		Jugador c = new Jugador(); //Jugador computadora
-		
+		Dado dado1 = new Dado();
+		Dado dado2 = new Dado();
+		Dado dado3 = new Dado();
+		Dado dado4 = new Dado();
 		int dinero = 1000;
 		int tiradaInicialHumano = 1;
 		int tiradaInicialComputadora = 1;
+		int ronda = 1;
+		int numeroDelPrimerDadoParaElHumano=1;
+ 		int numeroDelSegundoDadoParaElHumano=1;
+ 		int numeroDelPrimerDadoParaLaCompu=1;
+ 		int numeroDelSegundoDadoParaLaCompu=1;
+ 		int puntuacionCompu = 6;
+ 		int puntuacionHumano = 6;
  		do{//Hacer
  
  			System.out.println("Introduce tu nombre");//Preguntar nombre del jugador
@@ -120,32 +131,64 @@ public class Chicago {
  			tiradaInicialHumano = j.lanzarDado();
  			tiradaInicialComputadora = c.lanzarDado();
  			
- 			System.out.println("La tirada inicial del jugador fue "+ tiradaInicialHumano);
+ 			System.out.println("La tirada inicial de " + nombre +" fue "+ tiradaInicialHumano);
  			
  			System.out.println("La tirada inicial del ordeenador fue "+ tiradaInicialComputadora);
  			
  			if(tiradaInicialComputadora<tiradaInicialHumano) {
-				System.out.println("El humano tira primero");
+				System.out.println(nombre + "tira primero");
 				}else{
 					System.out.println("El PC tira primero");
 					}
  			//Lanzar dado y determinar quien tirará primero *
+ 			try{
+				do{
+				System.out.println("Cuanto desea apostar?");
+				
+				dineroApostado = teclado.nextInt();
+				
+				}while(dineroApostado <= 0);
+				
+			}catch(InputMismatchException e) {
+				System.out.println("Introduce un numero entero, no un decimal");
+				}
+			finally{
+								do{
+				System.out.println("Cuanto desea apostar?");
+				
+				dineroApostado = teclado.nextInt();
+				
+				}while(dineroApostado <= 0);
+				}
  			//Leer cuánto se apuesta y validar entrada
  
- 			//Hacer
+ 			do{//Hacer
+				System.out.println("El numero clave de esta ronda es " + (ronda+1));
  				//Mostrar numero clave de la ronda
+ 				numeroDelPrimerDadoParaElHumano=dado1.generarTirada();
+ 				numeroDelSegundoDadoParaElHumano=dado2.generarTirada();
+ 				numeroDelPrimerDadoParaLaCompu=dado3.generarTirada();
+ 				numeroDelSegundoDadoParaLaCompu=dado4.generarTirada();
+ 				puntuacionHumano = numeroDelPrimerDadoParaElHumano + numeroDelSegundoDadoParaElHumano;
+ 				puntuacionCompu = numeroDelPrimerDadoParaLaCompu + numeroDelSegundoDadoParaLaCompu;
  				//Tirar el dado *
- 				//Si hubo ganador
- 					//Mostrar el ganador de la ronda
- 				//Sino
+ 				if(puntuacionHumano<puntuacionCompu || puntuacionHumano>puntuacionCompu){//Si hubo ganador
+ 					System.out.println("El ganador de la ronda fue ... ");
+ 					
+ 					if(puntuacionHumano<puntuacionCompu){
+						System.out.println("...La compu");
+						}else{
+							System.out.println("... "+nombre);
+							}//Mostrar el ganador de la ronda
+ 				}else{//Sino
  					//Hacer
  						//Tirar dado para Jugador *
  						//Tirar dado para el ordenador *
  					//Mientras ninguno saque el numero clave de la ronda
- 
+				}
  				//Sumar punto al ganador
- 
- 			//Mientras no se llegue a la ronda 11
+			ronda++;
+ 			}while(ronda<11);//Mientras no se llegue a la ronda 11
  			
  			//Mostrar ganador del juego
  
@@ -157,10 +200,6 @@ public class Chicago {
  			System.out.println("Desea repetir?");//Pedir si repetir
 			repetir = Character.toUpperCase(teclado.next().charAt(0));
  		}while(repetir =='S');//Mientras el usuario quiera
- 
-
-		
-		
 		
 	}
 }// FIN_PP
