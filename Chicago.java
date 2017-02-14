@@ -97,16 +97,19 @@ Juego Chicago:
 import java.io.*;
 import java.util.Scanner;
 
-public class chicago {
+public class Chicago {
 	
 	public static void main (String[] args) {
 		
 		Scanner teclado = new Scanner (System.in);
 		char repetir = ' ';
 		String nombre = " ";
-		Jugador j = new Jugador();
-		int dinero = 1000;
+		Jugador j = new Jugador(); //Jugador humano
+		Jugador c = new Jugador(); //Jugador computadora
 		
+		int dinero = 1000;
+		int tiradaInicialHumano = 1;
+		int tiradaInicialComputadora = 1;
  		do{//Hacer
  
  			System.out.println("Introduce tu nombre");//Preguntar nombre del jugador
@@ -114,6 +117,18 @@ public class chicago {
  			j.setNombre(nombre);
  			//Leer nombre del jugador *
  			
+ 			tiradaInicialHumano = j.lanzarDado();
+ 			tiradaInicialComputadora = c.lanzarDado();
+ 			
+ 			System.out.println("La tirada inicial del jugador fue "+ tiradaInicialHumano);
+ 			
+ 			System.out.println("La tirada inicial del ordeenador fue "+ tiradaInicialComputadora);
+ 			
+ 			if(tiradaInicialComputadora<tiradaInicialHumano) {
+				System.out.println("El humano tira primero");
+				}else{
+					System.out.println("El PC tira primero");
+					}
  			//Lanzar dado y determinar quien tirará primero *
  			//Leer cuánto se apuesta y validar entrada
  

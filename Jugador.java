@@ -230,10 +230,17 @@ public class Jugador implements Cloneable, Comparable <Jugador>{
 	  * CABECERA: void lanzarDado (int dado)
 	  * */
 	  
-	  public void lanzarDado (int dado){
+	  public int lanzarDado (){
+		  
+		  int tirada = 0;
+		  
+		  Dado d = new Dado();
+		  
+		  tirada = d.generarTirada();
+		  
+		  return tirada;
 		  
 
 		  }
-		  
 
 }	
